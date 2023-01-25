@@ -12,7 +12,7 @@ async function getAllCars(req: Request, res: Response) {
     return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
-/* 
+
 async function getSpecificCar(req: Request, res: Response) {
   const carId = parseInt(req.params.carId);
   try {
@@ -46,7 +46,7 @@ async function deleteCar(req: Request, res: Response) {
 
   try {
     await carService.deleteCar(carId);
-    res.send(httpStatus.OK);
+    res.sendStatus(httpStatus.OK);
   } catch (e) {
     console.log(e);
     if (e.name === "NotFoundError") {
@@ -55,13 +55,13 @@ async function deleteCar(req: Request, res: Response) {
 
     return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
-} */
+}
 
 const carController = {
   getAllCars,
-/*   getSpecificCar,
+   getSpecificCar,
   createCar,
-  deleteCar */
+ deleteCar
 }
 
 export default carController;
