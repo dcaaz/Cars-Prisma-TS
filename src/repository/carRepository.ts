@@ -1,11 +1,11 @@
-import db from "../config/database.js";
+import prisma from "../config/database.js";
 
 async function getCars() {
-  const data = await db.query(`SELECT * FROM cars`);
-  return data.rows;
+  const data = await prisma.cars.findMany();
+  return data;
 }
 
-async function getCar(id: number) {
+/* async function getCar(id: number) {
   const data = await db.query(`SELECT * FROM cars WHERE id = $1`, [id]);
   return data.rows[0];
 }
@@ -25,14 +25,14 @@ async function createCar(model: string, licensePlate: string, year: number, colo
 
 async function deleteCar(id: number) {
   await db.query(`DELETE FROM cars WHERE id = $1`, [id]);
-}
+} */
 
 const carRepository = {
-  getCar,
-  getCarWithLicensePlate,
+/*   getCar,
+  getCarWithLicensePlate, */
   getCars,
-  createCar,
-  deleteCar
+/*   createCar,
+  deleteCar */
 }
 
 export default carRepository;
